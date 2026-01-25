@@ -1,24 +1,82 @@
+/* @settings
+
+name: Yak's TTRPG Theme
+id: yaks-ttrpg
+settings:
+    - 
+        id: title
+        title: Page Ribbons
+        type: heading
+        level: 2
+	- 
+		id: color-header
+		title: Color Headers
+		description: Should the first header of a page be colored to match the page color?
+		type: class-toggle
+		default: true
+    - 
+        id: spell-color
+        title: Spell Page
+        type: variable-color
+		opacity: false
+        format: hex
+        default: '#64D2ED'
+    - 
+        id: monster-color
+        title: Monster Page
+        type: variable-color
+		opacity: false
+        format: hex
+        default: '#500d0d'
+    - 
+        id: item-color
+        title: Item Page
+        type: variable-color
+		opacity: false
+        format: hex
+        default: '#DEBC4A'
+    - 
+        id: condition-color
+        title: Item Page
+        type: variable-color
+		opacity: false
+        format: hex
+        default: '#6C9536'
+    - 
+        id: npc-color
+        title: NCP Page
+        type: variable-color
+		opacity: false
+        format: hex
+        default: '#988CFF'
+    - 
+        id: location-color
+        title: Location Page
+        type: variable-color
+		opacity: false
+        format: hex
+        default: '#C4BBA7'
+*/
+
+
+/* || UI
+   __  ______
+  / / / /  _/
+ / / / // /  
+/ /_/ // /   
+\____/___/   
+
+*/
 body {
-	--radius-s: 0px;
-	--radius-m: 0px;
-	--radius-l: 0px;
-	--input-radius: 0px;
-	--tab-radius-active: 0px;
-	--checkbox-radius: 0px;
-	--toggle-radius: 0px;
-	--toggle-thumb-radius: 0px;
-	--slider-thumb-radius: 0px;
-}
-
-.workspace-tab-header.is-active::before, .workspace-tab-header.is-active::after {
-	display: none;
-}
-
-svg * {
-	stroke-linecap: square;
-	stroke-linejoin: miter;
-	rx: 0;
-	ry: 0;
+	--radius-s: 6px;
+	--radius-m: 9px;
+	--radius-l: 12px;
+	--input-radius: 3px;
+	--tab-radius-active: 3px;
+	--checkbox-radius: 10px;
+	--toggle-radius: 10px;
+	--toggle-thumb-radius: 10px;
+	--slider-thumb-radius: 10px;
 }
 
 .menu {
@@ -32,3 +90,343 @@ svg * {
 .menu-separator {
 	margin: var(--size-2-1) calc(var(--size-2-1) * -1);
 }
+
+
+.workspace-tab-header.is-active::before, .workspace-tab-header.is-active::after {
+	display: none;
+}
+
+svg * {
+	stroke-linecap: square;
+	stroke-linejoin: miter;
+	rx: 2;
+	ry: 2;
+}
+
+/* Image Correction
+	Fix images 'fading' into the background color.	
+*/
+
+.theme-dark {
+    --highlight-mix-blend-mode: unset;
+}
+
+/* make image full size inside a callout */
+.markdown-rendered .callout-content img, .cm-contentContainer .callout-content img {
+	float: none;
+	margin: 0px;
+	border: none;
+	background-color: transparent;
+	display: block;
+	width: 100%;
+}
+
+
+/*
+ || Fonts
+    __________  _   _____________
+   / ____/ __ \/ | / /_  __/ ___/
+  / /_  / / / /  |/ / / /  \__ \ 
+ / __/ / /_/ / /|  / / /  ___/ / 
+/_/    \____/_/ |_/ /_/  /____/  
+
+*/
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Andada SC' !important;
+}
+
+
+h1 {
+    padding-bottom: 5px;
+    border-bottom: 1px solid var(--text-muted);
+}
+
+.markdown-source-view.mod-cm6 .cm-scroller {
+	font-family: 'Source Code Pro', monospace !important;
+}
+
+/* || Text Centering
+  _____________  ________   _____________   __________________  _____   ________
+ /_  __/ ____/ |/ /_  __/  / ____/ ____/ | / /_  __/ ____/ __ \/  _/ | / / ____/
+  / / / __/  |   / / /    / /   / __/ /  |/ / / / / __/ / /_/ // //  |/ / / __  
+ / / / /___ /   | / /    / /___/ /___/ /|  / / / / /___/ _, _// // /|  / /_/ /  
+/_/ /_____//_/|_|/_/     \____/_____/_/ |_/ /_/ /_____/_/ |_/___/_/ |_/\____/   
+                                                                                                                                 
+*/
+
+.callout[data-callout-metadata~="text-center"] .callout-content table{
+    margin-inline: auto !important;
+}
+
+.callout[data-callout-metadata~="text-center"] .callout-content{
+    text-align: center !important;
+}
+
+
+/* || Callouts
+   _________    __    __    ____  __  _____________
+  / ____/   |  / /   / /   / __ \/ / / /_  __/ ___/
+ / /   / /| | / /   / /   / / / / / / / / /  \__ \ 
+/ /___/ ___ |/ /___/ /___/ /_/ / /_/ / / /  ___/ / 
+\____/_/  |_/_____/_____/\____/\____/ /_/  /____/  
+*/                                                 
+
+/* || MONSTER STATBLOCK */
+
+.callout[data-callout="statblock"] {
+    --callout-color: 110, 106, 104;
+    border-width: 4px;
+    /* border-color: #3e3d3f; */
+    border-color: #500d0d;
+    border-style: double;
+    border-radius: 10px;
+}
+
+.callout[data-callout=statblock] .callout-icon {
+    display: none;
+}
+
+.callout[data-callout=statblock] .callout-title-inner{
+    display: none;
+}
+
+.callout[data-callout="statblock"] h3 {
+    padding-bottom: 2px;
+    border-bottom: 1px solid var(--text-muted);
+}
+.callout[data-callout="statblock"] h1 {
+    padding-bottom: 0;
+    border-bottom: 1px solid var(--text-muted);
+}
+
+.callout[data-callout="statblock"] tr{
+  border-bottom: 1px solid var(--text-muted);
+}
+
+.callout[data-callout="statblock"] th{
+  font-size:x-small;
+  font-weight:lighter;
+}
+
+.callout[data-callout="statblock"] table tr:nth-child(-n+3) td:nth-child(1),
+.callout[data-callout="statblock"] table tr:nth-child(-n+3) td:nth-child(2) {
+    background-color: #44433c;
+}
+
+.callout[data-callout="statblock"] table tr:nth-last-child(-n+3) td:nth-child(1),
+.callout[data-callout="statblock"] table tr:nth-last-child(-n+3) td:nth-child(2){
+    background-color: #3a3f3c;
+}
+
+
+.callout[data-callout="statblock"] table tr:nth-child(-n+3) td:nth-child(3),
+.callout[data-callout="statblock"] table tr:nth-child(-n+3) td:nth-child(4)  {
+    background-color: #463934;
+}
+
+.callout[data-callout="statblock"] table tr:nth-last-child(-n+3) td:nth-child(3),
+.callout[data-callout="statblock"] table tr:nth-last-child(-n+3) td:nth-child(4)  {
+    background-color: #3b2d38;
+}
+
+@media print {
+
+    .callout[data-callout="statblock"] table tr:nth-child(-n+3) td:nth-child(1),
+    .callout[data-callout="statblock"] table tr:nth-child(-n+3) td:nth-child(2) {
+        background-color: #ecded1;
+    }
+
+    .callout[data-callout="statblock"] table tr:nth-last-child(-n+3) td:nth-child(1),
+    .callout[data-callout="statblock"] table tr:nth-last-child(-n+3) td:nth-child(2){
+        background-color: #aec4b7;
+    }
+
+
+    .callout[data-callout="statblock"] table tr:nth-child(-n+3) td:nth-child(3),
+    .callout[data-callout="statblock"] table tr:nth-child(-n+3) td:nth-child(4)  {
+        background-color: #e9cfc4;
+    }
+
+    .callout[data-callout="statblock"] table tr:nth-last-child(-n+3) td:nth-child(3),
+    .callout[data-callout="statblock"] table tr:nth-last-child(-n+3) td:nth-child(4)  {
+        background-color: #c08eb4;
+    }
+
+    .callout[data-callout="statblock"] tr{
+        border-bottom: 1px solid white;
+    }
+}
+
+
+.callout[data-callout="combat"] {
+    --callout-color: 227, 43, 23;
+    --callout-icon: lucide-swords;
+}
+
+.callout[data-callout="xp"]{
+    --callout-color: 70, 247, 54;
+    --callout-icon: lucide-zap;
+}
+
+.callout[data-callout="facts"] {
+    --callout-color: 222, 184, 222;
+    --callout-icon: lucide-circle-alert;
+}
+
+.callout[data-callout="look"] {
+    --callout-color: 124, 128, 130;
+    --callout-icon: lucide-circle-user;
+}
+
+.callout[data-callout="friend"]{
+    --callout-color: 96, 201, 85;
+    --callout-icon: lucide-heart-handshake;
+}
+
+.callout[data-callout="enemy"]{
+    --callout-color: 201, 85, 85;
+    --callout-icon: lucide-sword;
+}
+
+.callout[data-callout="map"]{
+    --callout-color: 227, 213, 175;
+    --callout-icon: lucide-map;
+}
+
+.callout[data-callout="art"]{
+    --callout-color: transparent;
+    background-color: transparent;
+    padding: 0%;
+}
+
+.callout[data-callout=no-bg] {
+    --callout-color: transparent;
+    background-color: transparent;
+    border: none;
+    padding: 0%;
+}
+
+.callout[data-callout=no-bg] > .callout-icon {
+    display: none;
+}
+
+.callout[data-callout=no-bg] > .callout-title {
+    display: none;
+}
+
+/* || Callout Metadata
+   ______      ____            __     __  ___     __            __      __       
+  / ____/___ _/ / /___  __  __/ /_   /  |/  /__  / /_____ _____/ /___ _/ /_____ _
+ / /   / __ `/ / / __ \/ / / / __/  / /|_/ / _ \/ __/ __ `/ __  / __ `/ __/ __ `/
+/ /___/ /_/ / / / /_/ / /_/ / /_   / /  / /  __/ /_/ /_/ / /_/ / /_/ / /_/ /_/ / 
+\____/\__,_/_/_/\____/\__,_/\__/  /_/  /_/\___/\__/\__,_/\__,_/\__,_/\__/\__,_/  
+                                                                                 
+*/
+.callout[data-callout-metadata~="right"] {
+    float: right;
+    clear: right;
+    width: 30%;
+    margin: var(--infobox-margin);
+  }
+  .callout[data-callout-metadata~="left"] {
+    float: left;
+    clear: left;
+    width: 30%;
+    margin: var(--infobox-margin-left);
+  }
+  .callout[data-callout-metadata~="center"] {
+    margin: 0 auto !important;
+  }
+
+  .callout[data-callout-metadata~="full"]
+  {
+    width: 100%;
+  }
+  .callout[data-callout-metadata~="half"]
+  {
+    width: 48%;
+    margin: 1%;
+  }
+  .callout[data-callout-metadata~="wide"]
+  {
+    width: 58%;
+    margin: 1%;
+  }
+  .callout[data-callout-metadata~="small"]
+  {
+    width: 38%;
+    margin: 1%;
+  }
+  .callout[data-callout-metadata~="tiny"]
+  {
+    width: 14%;
+    margin: 1%;
+  }
+
+
+/* || Color Ribbons
+   ______      __              ____  _ __    __                    
+  / ____/___  / /___  _____   / __ \(_) /_  / /_  ____  ____  _____
+ / /   / __ \/ / __ \/ ___/  / /_/ / / __ \/ __ \/ __ \/ __ \/ ___/
+/ /___/ /_/ / / /_/ / /     / _, _/ / /_/ / /_/ / /_/ / / / (__  ) 
+\____/\____/_/\____/_/     /_/ |_/_/_.___/_.___/\____/_/ /_/____/  
+                                                                   
+*/
+
+body{
+	--spell-color: #64D2ED;
+	--item-color: #DEBC4A;
+	--condition-color: #6C9536;
+	--monster-color: #500d0d;
+	--npc-color: #988CFF;
+	--location-color: #C4BBA7;
+}
+
+.spell-page{
+  --fade-color: var(--spell-color);
+}
+
+.item-page{
+  --fade-color: var(--item-color);
+}
+
+.condition-page{
+  --fade-color: var(--condition-color);
+}
+
+.monster-page{
+  --fade-color: var(--monster-color)
+}
+
+.npc-page{
+  --fade-color: var(--npc-color)
+}
+
+.location-page {
+ --fade-color: var(--location-color)
+}
+
+.markdown-preview-section {
+  display: block;
+  isolation: isolate;
+
+  background-color: var(--background-primary);
+  border: solid 5px transparent;
+  border-radius: inherit;
+  overflow:visible;
+  background:
+    linear-gradient(var(--background-primary), var(--background-primary)) padding-box,
+    linear-gradient(to bottom, var(--fade-color) 0% , var(--background-primary) 30%) border-box;
+}
+
+/* || Color Header */
+
+.color-header .markdown-preview-section > .el-h1 {
+	color: var(--fade-color);
+}
+
+.color-header .markdown-preview-section > .el-h1  ~ .el-h1{
+	color: var(--text-normal);
+}
+
