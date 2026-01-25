@@ -66,6 +66,8 @@ settings:
 / /_/ // /   
 \____/___/   
 
+https://patorjk.com/software/taag/#p=display&f=Slant
+
 */
 body {
 	--radius-s: 6px;
@@ -91,7 +93,6 @@ body {
 	margin: var(--size-2-1) calc(var(--size-2-1) * -1);
 }
 
-
 .workspace-tab-header.is-active::before, .workspace-tab-header.is-active::after {
 	display: none;
 }
@@ -103,6 +104,15 @@ svg * {
 	ry: 2;
 }
 
+
+/* || Misc
+    __  ____________ ______
+   /  |/  /  _/ ___// ____/
+  / /|_/ // / \__ \/ /     
+ / /  / // / ___/ / /___   
+/_/  /_/___//____/\____/   
+                           
+*/
 /* Image Correction
 	Fix images 'fading' into the background color.	
 */
@@ -121,6 +131,9 @@ svg * {
 	width: 100%;
 }
 
+.wide-view {
+  --file-line-width: 80%;  
+}
 
 /*
  || Fonts
@@ -133,13 +146,17 @@ svg * {
 */
 
 h1, h2, h3, h4, h5, h6 {
+	color: var(--header-color);
     font-family: 'Andada SC' !important;
 }
 
-
-h1 {
-    padding-bottom: 5px;
-    border-bottom: 1px solid var(--text-muted);
+h1::after
+{
+	content: ' ';
+	display: block;
+	border-width: 2px;
+	border-style: solid;
+	border-image: linear-gradient(to right, var(--text-muted) 20% , var(--background-primary) 100%) 1;
 }
 
 .markdown-source-view.mod-cm6 .cm-scroller {
