@@ -79,6 +79,7 @@ body {
 	--toggle-radius: 10px;
 	--toggle-thumb-radius: 10px;
 	--slider-thumb-radius: 10px;
+    --file-line-width: 85ch;
 }
 
 .menu {
@@ -154,9 +155,9 @@ h1::after
 {
 	content: ' ';
 	display: block;
-	border-width: 2px;
+	border-width: 1.5px;
 	border-style: solid;
-	border-image: linear-gradient(to right, var(--text-muted) 20% , var(--background-primary) 100%) 1;
+    color: var(--header-color);
 }
 
 .markdown-source-view.mod-cm6 .cm-scroller {
@@ -212,10 +213,10 @@ h1::after
     padding-bottom: 2px;
     border-bottom: 1px solid var(--text-muted);
 }
-.callout[data-callout="statblock"] h1 {
+/* .callout[data-callout="statblock"] h1 {
     padding-bottom: 0;
     border-bottom: 1px solid var(--text-muted);
-}
+} */
 
 .callout[data-callout="statblock"] tr{
   border-bottom: 1px solid var(--text-muted);
@@ -430,7 +431,12 @@ body{
 
   background-color: var(--background-primary);
   border: solid 5px transparent;
-  border-radius: inherit;
+
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  
   overflow:visible;
   background:
     linear-gradient(var(--background-primary), var(--background-primary)) padding-box,
